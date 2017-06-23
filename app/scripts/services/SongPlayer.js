@@ -8,10 +8,10 @@
                  formats: ['mp3'],
                  preload: true
              });
-             console.log(song.audioUrl);
+
              currentBuzzObject.play();
 
-         };
+        };
 
          return SongPlayer;
     }
