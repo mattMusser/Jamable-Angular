@@ -11,7 +11,7 @@
 
              currentBuzzObject.play();
 
-         };
+        };
 
          return SongPlayer;
     }
