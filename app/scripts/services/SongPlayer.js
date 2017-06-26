@@ -1,16 +1,22 @@
 (function() {
-    function SongPlayer() {
+    function SongPlayer(Fixtures) {
          var SongPlayer = {};
 
+         var currentAlbum = Fixtures.getAlbum();
+
+         var getSongIndex = function(song) {
+             return currentAlbum.songs.indexOf(song);
+         }
+
          SongPlayer.currentSong = null;
+
+         var currentBuzzObject = null;
 
          /**
          * @function setSong
          * @desc Stops currently playing song and Loads new audio file as currentBuzzObject
          * @param {Object} song
          */
-
-         var currentBuzzObject = null;
 
          var setSong = function(song) {
              if (currentBuzzObject) {
@@ -49,12 +55,26 @@
             song = song || SongPlayer.currentSong;
             currentBuzzObject.pause();
             song.playing = false;
-        }
+        };
+
+        SongPlayer.previous = function() {
+            var currentSongIndex = getSongIndex(SongPlayer.currentSong);
+            currentSongIndex--;
+
+            if (currentSongIndex < 0) {
+                currentBuzzObject.stop();
+                SongPlayer.currentSong.playing = null;
+            } else {
+                var song = currentAlbum.songs[currentSongIndex];
+                setSong(song);
+                playSong(song);
+            }
+        };
 
          return SongPlayer;
     }
 
     angular
-        .module('blocjams')
-        .factory('SongPlayer', SongPlayer);
+        .module('blocjams ')
+        .factory('SongPlayer', ['Fixtures', SongPlayer]);
 })();
