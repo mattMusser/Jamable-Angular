@@ -6,7 +6,7 @@
 
          var getSongIndex = function(song) {
              return currentAlbum.songs.indexOf(song);
-         }
+         };
 
          SongPlayer.currentSong = null;
 
@@ -75,6 +75,6 @@
     }
 
     angular
-        .module('blocjams ')
+        .module('blocjams')
         .factory('SongPlayer', ['Fixtures', SongPlayer]);
 })();
