@@ -2,6 +2,7 @@
     function SongPlayer() {
          var SongPlayer = {};
 
+
          SongPlayer.play = function(song) {
 
              var currentBuzzObject = new buzz.sound(song.audioUrl, {
