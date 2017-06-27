@@ -44,6 +44,12 @@
                   preload: true
              });
 
+             currentBuzzObject.bind('timeupdate', function() {
+                 $rootScope.$apply(function() {
+                     SongPlayer.currentTime = currentBuzzObject.getTime();
+                 });
+             });
+
              SongPlayer.currentSong = song;
          }
 
@@ -147,5 +153,5 @@
 
     angular
         .module('blocjams')
-        .factory('SongPlayer', ['Fixtures', SongPlayer]);
+        .factory('SongPlayer', ['$rootScope', 'Fixtures', SongPlayer]);
 })();
