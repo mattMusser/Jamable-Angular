@@ -39,6 +39,11 @@
              song.playing = true;
          };
 
+         var stopSong = function(song) {
+             currentBuzzObject.stop();
+             song.Playing = null;
+         };
+
          SongPlayer.play = function(song) {
              song = song || SongPlayer.currentSong;
              if (SongPlayer.currentSong !== song) {
@@ -62,8 +67,7 @@
             currentSongIndex--;
 
             if (currentSongIndex < 0) {
-                currentBuzzObject.stop();
-                SongPlayer.currentSong.playing = null;
+                stopSong(song);
             } else {
                 var song = currentAlbum.songs[currentSongIndex];
                 setSong(song);
@@ -75,9 +79,8 @@
             var currentSongIndex = getSongIndex(SongPlayer.currentSong);
             currentSongIndex++;
 
-            if (CurrentSongIndex > 0) {
-                currentBuzzObject.stop();
-                SongPlayer.currentSong.playing = null;
+            if (CurrentSongIndex > 5) {
+                stopSong(song);
             } else {
                 var song = currentAlbum.songs[currentSongIndex];
                 setSong(song);
