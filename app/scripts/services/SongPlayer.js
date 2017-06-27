@@ -2,6 +2,7 @@
     function SongPlayer(Fixtures) {
          var SongPlayer = {};
 
+
          var currentAlbum = Fixtures.getAlbum();
 
          var getSongIndex = function(song) {
@@ -10,6 +11,10 @@
 
          SongPlayer.currentSong = null;
 
+         /**
+         * @desc Buzz object audio file
+         * @type {Object}
+         */
          var currentBuzzObject = null;
 
          /**
@@ -17,7 +22,6 @@
          * @desc Stops currently playing song and Loads new audio file as currentBuzzObject
          * @param {Object} song
          */
-
          var setSong = function(song) {
              if (currentBuzzObject) {
                 currentBuzzObject.stop();
@@ -34,6 +38,11 @@
 
          SongPlayer.currentSong = null;
 
+         /**
+         * @function playSong
+         * @desc Starts playing the currentBuzzObject
+         * @param {Object} song
+         */
          var playSong = function(song) {
              currentBuzzObject.play();
              song.playing = true;
