@@ -2,11 +2,11 @@
     function seekBar ($document) {
       var calculatePercent = function(seekBar, event) {
             var offsetX = event.pageX - seekBar.offset().left;
-            var seekBarWidth = seekBar. width();
+            var seekBarWidth = seekBar.width();
             var offsetXPercent = offsetX / seekBarWidth;
             offsetXPercent = Math.max(0, offsetXPercent);
             offsetXPercent = Math.min(1, offsetXPercent);
-            
+
             return offsetXPercent;
         };
 
@@ -29,6 +29,10 @@
                 };
 
                 scope.fillStyle = function() {
+                    return {width: percentString()};
+                };
+
+                scope.thumbStyle = function() {
                     return {width: percentString()};
                 };
 
