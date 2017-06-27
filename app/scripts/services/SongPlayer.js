@@ -17,6 +17,12 @@
          SongPlayer.currentSong = null;
 
          /**
+         * @desc Current playback time (in seconds) of currently playing song
+         * @type {Number}
+         */
+         SongPlayer.currentTime = null;
+
+         /**
          * @desc Buzz object audio file
          * @type {Object}
          */
