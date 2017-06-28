@@ -26,7 +26,7 @@
          * @desc The volume value
          * @type {Number}
          */
-         SongPlayer.volume = null;
+         SongPlayer.volume = 50;
 
          /**
          * @desc Buzz object audio file
@@ -159,9 +159,9 @@
         * @desc Sets the volume
         * @param {Number} volume
         */
-        SongPlayer.setVolume = function() {
-            if (currentBuzzObject) {
-                currentBuzzOject.setVolume(volume);
+        SongPlayer.setVolume = function(volume) {
+            if(currentBuzzObject) {
+               currentBuzzObject.setVolume(volume);
             }
         };
 
