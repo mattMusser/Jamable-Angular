@@ -77,6 +77,7 @@
                 Never gonna tell a lie and hurt you
                 */
                 scope.thumbStyle = function() {
+                    console.log(percentString())
                     return {left: percentString()};
                 };
 
