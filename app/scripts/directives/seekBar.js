@@ -49,7 +49,7 @@
                 scope.onClickSeekBar = function(event) {
                     var percent = calculatePercent(seekBar, event);
                     scope.value = percent * scope.max;
-                    notifyOnChange(scope.value);
+                    //notifyOnChange(scope.value);
                 };
 
                 scope.trackThumb = function() {
@@ -57,7 +57,7 @@
                         var percent = calculatePercent(seekBar, event);
                         scope.$apply(function() {
                             scope.value = percent * scope.max;
-                            notifyOnChange(scope.value);
+                            //notifyOnChange(scope.value);
                         });
                     });
 
@@ -68,11 +68,11 @@
 
                 };
 
-                var notifyOnChange = function(newValue) {
+                /*var notifyOnChange = function(newValue) {
                     if (typeof scope.onChange === 'function') {
                         scope.onChange({value: newValue});
                     }
-                };
+                };*/
             }
         };
     }
